@@ -15,7 +15,7 @@ class Album(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.title
+        return self.title + ' / ' + str(self.artist)
 
 
 class Song(models.Model):
@@ -33,5 +33,5 @@ class AlbumSong(models.Model):
         return 'Album: '+str(self.album) + ' / Song: ' + str(self.song) + ' / Track number: ' + str(self.track_number)
 
     class Meta:
-        unique_together = ['album', 'song']
+        unique_together = ['track_number']
 
